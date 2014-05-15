@@ -1,5 +1,13 @@
-﻿// Firebase url: https://boiling-fire-2084.firebaseio.com/
+// Sort tweets
+
+// find users/tweets and follow/retweet them
+
+// display feed based on users
+
+// Firebase url: https://boiling-fire-2084.firebaseio.com/
 // Sarah's url: https://resplendent-fire-6893.firebaseio.com/
+
+//**********have the tweets feed on load*******
 
 var postTweet = function () {
 
@@ -61,18 +69,35 @@ var loadTweets = function () {
             // if request successful
             var data = JSON.parse(this.response);
 
+            var tweetArray = [];//**************move up here*************
+
             for (var propName in data) {
 
-                var tweetArray = [];
-                tweetArray.push(data[propName]["timeStamp"]);
-                tweetArray.sort();
+                //*********tweet Array
 
-                // if it's my tweet
+                // if it's my tweetArray push and sort moved below because some of Sarah's tweets are still not generating timeStamp**********
                 if (data[propName]["name"] === "Wasim") {
                     
                     // set avatar image to mine
                     var avatar = "<img src='http://www.pakpassion.net/ppforum/avatars/avatar135846_2.gif'></img>";
 
+                    tweetArray.push(data[propName]);
+                    //tweetArray.sort().reverse();
+                    
+                    //function compare(a, b) {
+                    //    if (data.a.timeStamp < data.b.timeStamp)
+                    //        return -1;
+                    //    if (data.a.timeStamp > data.b.timeStamp)
+                    //        return 1;
+                    //    return 0;
+                    //}
+
+                    tweetArray.sort(function(a,b){
+                        return a.timeStamp - b.timeStamp
+                    })
+
+
+                    // display the tweet
                     document.getElementById("container").innerHTML +=
 
                         "<p class='tweet'><br />" +

@@ -25,15 +25,19 @@
 
 #tweetFeed {
     float: right;
-    width: 70%;
+    /*new*/
+    width: 69.85%;
     background-color: aliceblue;
     border-radius: 15px;
+    /*new*/
+    border: 1px solid silver;
 }
 
 #profileDiv {
     float: left;
     width: 30%;
-    height: 400px;
+    /*new*/
+    height: 800px;
     background-color: lightblue;
 }
 
@@ -59,4 +63,9 @@
 
 .button:hover {
     background-color: greenyellow;
+}
+
+/*new*/
+textarea {
+    resize: none
 }
