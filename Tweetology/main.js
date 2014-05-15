@@ -10,6 +10,7 @@ var postTweet = function () {
         name: "Wasim",
         timeStamp: new Date().getTime()
     };
+    sessionStorage.setItem("newTweet", JSON.stringify(tweet));
     document.getElementById("tweetField").value = "";
 
 
@@ -31,7 +32,10 @@ var postTweet = function () {
         // Connection fails
         console.log("Whoops, connection failed!");
     };
-    request.send(JSON.stringify(tweet)); //JSON.stringify coverts the tween object to a string
+    for (var i = 0; i < sessionStorage.length; i++) {
+        request.send(sessionStorage[i]); //JSON.stringify coverts the tween object to a string
+    }
+    
 
     //load all the tweets
     loadTweets();
