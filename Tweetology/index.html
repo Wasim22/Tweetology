@@ -4,13 +4,13 @@
     <title></title>
     <link href="styles.css" rel="stylesheet" />
 </head>
-<body onload="loadTweets();">
+<body onload="reloadTweets();">
     <div id="header">
         <form id="tweetForm">
             <textarea id='tweetField' rows="4" cols="42"></textarea>
             <div >
-                <span class='button' id='tweetButton' onclick='postTweet();'>Tweet</span>
-                <span class='button' id='loadButton' onclick='loadTweets();'>Load Feed</span>
+                <span class='button' id='tweetButton' onclick='createTweet();'>Tweet</span>
+                <span class='button' id='loadButton' onclick='reloadTweets();'>Load Feed</span>
             </div>     
         </form>
     </div>
@@ -23,7 +23,7 @@
     
 
 
-
+    <script src="getpostService.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
